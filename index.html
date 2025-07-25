@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vision Pro UI - Tab Bar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="top-controls">
+    <img src="icons/shutdown.png" alt="Shutdown" title="خاموش کردن" id="shutdown-btn">
+    <img src="icons/restart.png" alt="Restart" title="راه اندازی مجدد" id="restart-btn">
+  </div>
+
+  <div class="tab-bar">
+    <div class="logo">
+      <img src="icons/logo.png" class="logo-img" />
+    </div>
+
+    <div class="tab-item" id="home-tab" onclick="changeTab('play')">
+      <img src="icons/play.png" alt="Play" />
+      <span class="tooltip">پخش نمایش</span>
+      
+    </div>
+    <div class="tab-item" id="movies-tab" onclick="changeTab('playlist')">
+      <img src="icons/video-playlist.png" alt="Movies" />
+      <span class="tooltip">نمایش ها</span>
+    </div>
+    <div class="tab-item" id="film-tab" onclick="changeTab('film')">
+      <img src="icons/download.png" alt="Film" />
+      <span class="tooltip">فیلم ها</span>
+    </div>
+    <div class="tab-item" id="downloads-tab" onclick="changeTab('downloads')">
+      <img src="icons/download.png" alt="Downloads" />
+      <span class="tooltip">دانلود ها</span>
+    </div>
+    <div class="tab-item" id="settings-tab" onclick="changeTab('settings')">
+      <img src="icons/settings.png" alt="Settings" />
+      <span class="tooltip">تنظیمات</span>
+    </div>
+    <div class="tab-item" id="about-tab" onclick="changeTab('about')">
+      <img src="icons/info.png" alt="About" />
+      <span class="tooltip">درباره</span>
+    </div>
+  </div>
+  <div id="content-area">
+    <div class="tab-content" id="home-content">
+      <h1>پخش نمایش</h1>
+      <p>محتوای مربوط به پخش نمایش اینجا نمایش داده می‌شود.</p>
+    </div>
+    <div class="tab-content" id="movies-content">
+      <h1>فیلم‌ها</h1>
+      <p>محتوای مربوط به فیلم‌ها اینجا نمایش داده می‌شود.</p>
+    </div>
+    <div class="tab-content" id="film-tab">
+      <h1>دانلودها</h1>
+      <p>محتوای مربوط به دانلودها اینجا نمایش داده می‌شود.</p>
+    </div>
+    <div class="tab-content" id="downloads-content">
+      <h1>دانلودها</h1>
+      <p>محتوای مربوط به دانلودها اینجا نمایش داده می‌شود.</p>
+    </div>
+    <div class="tab-content" id="settings-content">
+      <h1>تنظیمات</h1>
+      <p>محتوای مربوط به تنظیمات اینجا نمایش داده می‌شود.</p>
+    </div>
+    <div class="tab-content" id="about-content">
+      <h1>درباره</h1>
+      <p>محتوای مربوط به صفحه درباره‌ی اینجا نمایش داده می‌شود.</p>
+    </div>
+  </div>
+
+  <script>
+    // نمایش تب‌ها و پنهان کردن تب‌های دیگر
+    function changeTab(tabName) {
+      const allTabs = document.querySelectorAll('.tab-content');
+      allTabs.forEach(tab => tab.style.display = 'none');
+      document.getElementById(tabName + '-content').style.display = 'block';
+    }
+
+    // به طور پیش‌فرض، تب "پخش نمایش" نمایش داده شود
+    changeTab('home');
+  </script>
+</body>
+</html>
+
