@@ -18,17 +18,16 @@
       <img src="icons/logo.png" class="logo-img" />
     </div>
 
-    <div class="tab-item" id="home-tab" onclick="changeTab('play')">
+    <div class="tab-item" id="play-tab" onclick="changeTab('play')">
       <img src="icons/play.png" alt="Play" />
       <span class="tooltip">پخش نمایش</span>
-      
     </div>
     <div class="tab-item" id="playlist" onclick="changeTab('playlist')">
       <img src="icons/video-playlist.png" alt="Movies" />
       <span class="tooltip">نمایش ها</span>
     </div>
     <div class="tab-item" id="film-tab" onclick="changeTab('film')">
-      <img src="icons/download.png" alt="Film" />
+      <img src="icons/film.png" alt="Film" />
       <span class="tooltip">فیلم ها</span>
     </div>
     <div class="tab-item" id="downloads-tab" onclick="changeTab('downloads')">
@@ -45,10 +44,14 @@
     </div>
   </div>
   <div id="content-area">
-    <div class="tab-content" id="home-content">
-      <h1>پخش نمایش</h1>
-      <p>محتوای مربوط به پخش نمایش اینجا نمایش داده می‌شود.</p>
-    </div>
+    <div class="tab-content" id="play-content">
+      <div class="top-right-box">
+        
+      </div>
+      <div class="bottom-right-box">
+
+      </div>
+    </div>  
     <div class="tab-content" id="movies-content">
       <h1>فیلم‌ها</h1>
       <p>محتوای مربوط به فیلم‌ها اینجا نمایش داده می‌شود.</p>
@@ -70,18 +73,11 @@
       <p>محتوای مربوط به صفحه درباره‌ی اینجا نمایش داده می‌شود.</p>
     </div>
   </div>
-
-  <script>
-    // نمایش تب‌ها و پنهان کردن تب‌های دیگر
-    function changeTab(tabName) {
-      const allTabs = document.querySelectorAll('.tab-content');
-      allTabs.forEach(tab => tab.style.display = 'none');
-      document.getElementById(tabName + '-content').style.display = 'block';
-    }
-
-    // به طور پیش‌فرض، تب "پخش نمایش" نمایش داده شود
-    changeTab('home');
+  <script src="script.js">
+    console.log("عرض صفحه: " + window.innerWidth + "px");
+    console.log("ارتفاع صفحه: " + window.innerHeight + "px");
   </script>
+  
 </body>
 </html>
 
