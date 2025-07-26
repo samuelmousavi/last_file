@@ -14,20 +14,26 @@ body {
   justify-content: flex-start;
   align-items: center;
   position: relative;
+  font-size: 1rem;
 }
 
 .top-controls {
   position: absolute;
-  top: 20px;
-  left: 30px;
+  background: rgba(159, 158, 158, 0.19);
+  margin-left: 2vw;
+  top: .5vw;
+  padding: 1.4vw;
+  border-radius: 2.8vw;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 1.5vw;
   z-index: 10;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.667);
 }
 
 .top-controls img {
-  width: 64px;
-  height: 64px;
+  width: 1.5vw;
+  height: 1.5vw;
   filter: invert(1);
   cursor: pointer;
   opacity: 0.8;
@@ -41,28 +47,30 @@ body {
 
 #shutdown-btn {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 1.5vw; /* اندازه عرض */
+  height: 1.5vw;
   filter: invert(1);
   cursor: pointer;
   opacity: 0.8;
-  border-radius: 12px;
+  border-radius: 2.8vw;
   transition: all 0.2s ease;
 }
 
 #shutdown-btn:hover {
   opacity: 1;
-  transform: scale(1.1);
+  width: 1.5vw; 
+  height: 1.5vw;
+  transform-origin: scale(1.1);
   background-color: red; /* Change background to red */
   filter: none; /* Remove filter effects */
   border-radius: 50%;
-  padding: 5px; /* Optional: Adds padding to the button */
+  padding: 0.1vw; /* Optional: Adds padding to the button */
 }
 
 #restart-btn{
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 1.5vw; /* اندازه عرض */
+  height: 1.5vw;
   filter: invert(1);
   cursor: pointer;
   opacity: 0.8;
@@ -72,44 +80,35 @@ body {
 
 #restart-btn:hover {
   opacity: 1;
-  transform: scale(1.1);
+  width: 1.5vw; 
+  height: 1.5vw;
+  transform-origin: scale(1.1);
   background-color: green; /* Change background to green */
   filter: none; /* Remove filter effects */
   border-radius: 50%;
   padding: 5px; /* Optional: Adds padding to the button */
 }
 
-#shutdown-btn, #restart-btn {
-  width: 30px; /* تغییر اندازه عرض */
-  height: 30px; /* تغییر اندازه ارتفاع */
-}
-
-#shutdown-btn:hover, #restart-btn:hover {
-  width: 30px; /* اندازه بزرگتر هنگام هاور */
-  height: 30px; /* اندازه بزرگتر هنگام هاور */
-}
-
 .tab-bar {
-  width: 90px;
-  height: 80vh;
-  background: rgba(255, 255, 255, 0.06);
-  margin-left: 30px;
-  backdrop-filter: blur(12px);
-  border-radius: 40px;
+  width: 4.8vw;
+  height: 62vh;
+  background: rgba(159, 158, 158, 0.19);
+  margin-left: 2vw;
+  border-radius: 2.4vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
-  gap: 45px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  padding: auto;
+  gap: 4.5vh;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.667);
 }
 
 .logo-img {
-  width: 42px;
+  width: 2.5vw;
   height: 42px;
   object-fit: cover;
-  border-radius: 70%;
+  border-radius: 50%;
 }
 
 .tab-item {
@@ -121,8 +120,8 @@ body {
 }
 
 .tab-item img {
-  width: 36px;
-  height: 36px;
+  width: 1.8vw;
+  height: 1.8vw;
   filter: invert(1);
   opacity: 0.8;
   transition: all 0.2s ease;
@@ -130,7 +129,7 @@ body {
 
 .tab-item img:hover {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .tooltip {
@@ -139,10 +138,10 @@ body {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   padding: 6px 12px;
-  border-radius: 16px;
+  border-radius: 2.8vw;
   white-space: nowrap;
   opacity: 0;
-  transform: translateX(-10px);
+  transform: translateX(-1vw);
   transition: all 0.3s ease;
   font-size: 16px;
   color: white;
@@ -154,6 +153,21 @@ body {
   transform: translateX(0);
 }
 
+#about-tab img {
+  width: 1.6vw;
+  height: 1.6vw;
+}
+
+#settings-tab img{
+  width: 2vw;
+  height: 2vw;
+}
+
+#play-tab img{
+  width: 2vw;
+  height: 2vw;
+}
+
 #content-area {
   margin-left: 120px;
   width: 100%;
@@ -162,12 +176,38 @@ body {
 
 .tab-content {
   display: none;
+  transition: opacity 0.5s ease;
 }
 
-.tab-content h1 {
-  font-size: 32px;
+.tab-content.show {
+  display: block; /* نمایش محتوای تب */
+  opacity: 1; /* شفافیت کامل */
 }
 
-.tab-content p {
-  font-size: 18px;
+.top-right-box {
+  position: absolute; /* موقعیت دهی به صورت مطلق */
+  top: 30%; /* 50% از ارتفاع صفحه */
+  left: 53%; /* 50% از عرض صفحه */
+  height: 57vh;
+  width: 91vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 2vw; /* اندازه پدینگ نسبی */
+  border-radius: 2.8vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%); /* انتقال به مرکز دقیق صفحه */
+}
+
+.bottom-right-box{
+position: absolute; /* موقعیت دهی به صورت مطلق */
+  top: 79%; /* 50% از ارتفاع صفحه */
+  left: 53%; /* 50% از عرض صفحه */
+  height: 36vh;
+  width: 91vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 2vw; /* اندازه پدینگ نسبی */
+  border-radius: 2.8vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%); 
 }
