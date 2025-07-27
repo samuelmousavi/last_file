@@ -3,14 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vision Pro UI - Tab Bar</title>
+  <title>PIXEL UI</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="top-right-box">
+        
+  </div>
 
   <div class="top-controls">
+
+  </div>
+  <div class="bottom-right-box">
+
+  </div>
+  <div class="shutdown-bar">
     <img src="icons/shutdown.png" alt="Shutdown" title="خاموش کردن" id="shutdown-btn">
+  </div>
+  <div class="restart-bar">
     <img src="icons/restart.png" alt="Restart" title="راه اندازی مجدد" id="restart-btn">
+  </div>
+  <div class="clock-and-date">
+    <p id="clock"></p>
+    <p id="date"></p>
+    <script>
+      function updateClockAndDate() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('fa-IR-u-nu-latn', {
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+          timeZone: "Asia/Tehran"
+        });
+        document.getElementById("clock").textContent = timeStr;
+
+        const dateStr = new Intl.DateTimeFormat('fa-IR-u-nu-latn', {
+          dateStyle: 'short',
+          timeZone: "Asia/Tehran"
+        }).format(now);
+        document.getElementById("date").textContent = dateStr;
+      }
+
+      updateClockAndDate();
+
+      setInterval(updateClockAndDate, 1000);
+    </script>
   </div>
 
   <div class="tab-bar">
@@ -45,13 +83,16 @@
   </div>
   <div id="content-area">
     <div class="tab-content" id="play-content">
-      <div class="top-right-box">
-        
-      </div>
-      <div class="bottom-right-box">
-
+      <div class="search-in-play-box">
+        <input type="text" placeholder="جستجو..." class="search-input">
+          <button class="search-btn">
+            <img src="icons/search.png" alt="Search">
+          </button>
       </div>
     </div>  
+    <div class="call-us">
+      <img src="icons/call.png" alt="call-us" id="call-us">
+    </div>
     <div class="tab-content" id="movies-content">
       <h1>فیلم‌ها</h1>
       <p>محتوای مربوط به فیلم‌ها اینجا نمایش داده می‌شود.</p>
@@ -77,6 +118,7 @@
     console.log("عرض صفحه: " + window.innerWidth + "px");
     console.log("ارتفاع صفحه: " + window.innerHeight + "px");
   </script>
+  
   
 </body>
 </html>
