@@ -28,3 +28,20 @@ function changeTab(tabName) {
 
 // به طور پیش‌فرض، تب "پخش نمایش" نمایش داده شود
 changeTab('play');
+
+
+// تابعی برای نمایش ساعت و تاریخ شمسی
+function updateTimeAndDate() {
+    // ساعت و تاریخ میلادی را بگیرید
+    var now = moment();
+
+    // به روز رسانی ساعت
+    document.getElementById("clock").innerText = now.format("HH:mm:ss");
+
+    // به روز رسانی تاریخ شمسی
+    document.getElementById("date").innerText = now.format("jYYYY/jMM/jDD");
+}
+
+// به روز رسانی هر ثانیه
+setInterval(updateTimeAndDate, 1000);
+console.log(moment().format("jYYYY/jMM/jDD")); // این باید تاریخ شمسی جاری را نمایش دهد
