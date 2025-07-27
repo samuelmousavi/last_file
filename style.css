@@ -5,10 +5,11 @@
 }
 
 body {
-  background: radial-gradient(circle at top left, #1a1a1a, #101010);
+  background: linear-gradient(to right, #232222, #262323);
   font-family: 'Segoe UI', sans-serif;
-  color: white;
+  color: rgb(255, 255, 255);
   height: 100vh;
+  width: 100vw;
   overflow: hidden;
   display: flex;
   justify-content: flex-start;
@@ -17,32 +18,52 @@ body {
   font-size: 1rem;
 }
 
+
 .top-controls {
   position: absolute;
-  background: rgba(159, 158, 158, 0.19);
   margin-left: 2vw;
-  top: .5vw;
-  padding: 1.4vw;
+  top: 2vh;
+  height: 19vh;
+  background: rgba(159, 158, 158, 0.19);
+  padding: 2.1vw;
   border-radius: 2.8vw;
   display: flex;
-  flex-direction: column;
-  gap: 1.5vw;
-  z-index: 10;
+  gap: 2.2vw;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.667);
 }
 
-.top-controls img {
-  width: 1.5vw;
-  height: 1.5vw;
-  filter: invert(1);
-  cursor: pointer;
-  opacity: 0.8;
-  transition: all 0.2s ease;
+
+.shutdown-bar {
+  position: fixed; /* ثابت بودن موقعیت */
+  top: 2vh; /* فاصله از پایین صفحه */
+  left: 2vw; /* فاصله از سمت راست صفحه */
+  display: flex;
+  justify-content: center; /* مرکزگرا کردن افقی */
+  align-items: center; /* مرکزگرا کردن عمودی */
+  width: 4.2vw; /* عرض باکس */
+  height: 4.2vw; 
+  border-radius: 50%; 
+  cursor: pointer; /* تغییر نشانگر موس به دست */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* انیمیشن برای افکت هاور */
+  z-index: 10;
 }
 
-.top-controls img:hover {
-  opacity: 1;
-  transform: scale(1.1);
+/* استایل برای آیکون تماس */
+#shutdown-bar {
+  width: 1.8vw; /* اندازه آیکون */
+  height: 1.8vw;
+  filter: invert(1); /* معکوس کردن رنگ آیکون برای خوانایی بهتر */
+  transition: transform 0.3s ease, filter 0.3s ease; /* انیمیشن برای تغییر اندازه و رنگ */
+}
+
+/* افکت هاور برای دکمه تماس */
+.shutdown-bar:hover {
+  background-color: #e65c4f; /* تغییر رنگ پس‌زمینه هنگام هاور */
+  transform: scale(1.1); /* بزرگ شدن باکس */
+}
+.shutdown-bar img{
+  width: 3vw;
+  height: 3vw;
 }
 
 #shutdown-btn {
@@ -56,15 +77,36 @@ body {
   transition: all 0.2s ease;
 }
 
-#shutdown-btn:hover {
-  opacity: 1;
-  width: 1.5vw; 
-  height: 1.5vw;
-  transform-origin: scale(1.1);
-  background-color: red; /* Change background to red */
-  filter: none; /* Remove filter effects */
-  border-radius: 50%;
-  padding: 0.1vw; /* Optional: Adds padding to the button */
+.restart-bar {
+  position: fixed; /* ثابت بودن موقعیت */
+  top: 12vh; /* فاصله از پایین صفحه */
+  left: 2vw; /* فاصله از سمت راست صفحه */
+  display: flex;
+  justify-content: center; /* مرکزگرا کردن افقی */
+  align-items: center; /* مرکزگرا کردن عمودی */
+  width: 4.2vw; /* عرض باکس */
+  height: 4.2vw; /* ارتفاع باکس */
+  border-radius: 50%; /* گرد کردن باکس *//* سایه برای زیبایی بیشتر */
+  cursor: pointer; /* تغییر نشانگر موس به دست */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* انیمیشن برای افکت هاور */
+}
+
+/* استایل برای آیکون تماس */
+#restart-bar {
+  width: 1.8vw; /* اندازه آیکون */
+  height: 1.8vw;
+  filter: invert(1); /* معکوس کردن رنگ آیکون برای خوانایی بهتر */
+  transition: transform 0.3s ease, filter 0.3s ease; /* انیمیشن برای تغییر اندازه و رنگ */
+}
+
+/* افکت هاور برای دکمه تماس */
+.restart-bar:hover {
+  background-color: #70e64f; /* تغییر رنگ پس‌زمینه هنگام هاور */
+  transform: scale(1.1); /* بزرگ شدن باکس */
+}
+.shutdown-bar img{
+  width: 3vw;
+  height: 3vw;
 }
 
 #restart-btn{
@@ -78,35 +120,24 @@ body {
   transition: all 0.2s ease;
 }
 
-#restart-btn:hover {
-  opacity: 1;
-  width: 1.5vw; 
-  height: 1.5vw;
-  transform-origin: scale(1.1);
-  background-color: green; /* Change background to green */
-  filter: none; /* Remove filter effects */
-  border-radius: 50%;
-  padding: 5px; /* Optional: Adds padding to the button */
-}
-
 .tab-bar {
   width: 4.8vw;
   height: 62vh;
   background: rgba(159, 158, 158, 0.19);
+  margin-top:4.2vw;
   margin-left: 2vw;
   border-radius: 2.4vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: auto;
   gap: 4.5vh;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.667);
 }
 
 .logo-img {
   width: 2.5vw;
-  height: 42px;
+  height: 2.5vw;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -134,15 +165,15 @@ body {
 
 .tooltip {
   position: absolute;
-  left: 60px;
+  left: 3.5vw;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   padding: 6px 12px;
   border-radius: 2.8vw;
   white-space: nowrap;
   opacity: 0;
-  transform: translateX(-1vw);
-  transition: all 0.3s ease;
+  transform: translateX(-2vw);
+  transition: all .8s ease;
   font-size: 16px;
   color: white;
   pointer-events: none;
@@ -186,28 +217,165 @@ body {
 
 .top-right-box {
   position: absolute; /* موقعیت دهی به صورت مطلق */
-  top: 30%; /* 50% از ارتفاع صفحه */
-  left: 53%; /* 50% از عرض صفحه */
-  height: 57vh;
-  width: 91vw;
+  top: 5.5%; /* 50% از ارتفاع صفحه */
+  left: 50%; /* 50% از عرض صفحه */
+  height: 2vh;
+  width: 48vw;
   background: rgba(159, 158, 158, 0.19);
   color: white;
-  padding: 2vw; /* اندازه پدینگ نسبی */
+  padding: 2vw; 
   border-radius: 2.8vw;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
   transform: translate(-50%, -50%); /* انتقال به مرکز دقیق صفحه */
 }
 
 .bottom-right-box{
-position: absolute; /* موقعیت دهی به صورت مطلق */
-  top: 79%; /* 50% از ارتفاع صفحه */
+  position: absolute; /* موقعیت دهی به صورت مطلق */
+  top: 54.5%; /* 50% از ارتفاع صفحه */
   left: 53%; /* 50% از عرض صفحه */
-  height: 36vh;
+  height: 84vh;
   width: 91vw;
   background: rgba(159, 158, 158, 0.19);
   color: white;
-  padding: 2vw; /* اندازه پدینگ نسبی */
+  padding: 2vh; /* اندازه پدینگ نسبی */
   border-radius: 2.8vw;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
   transform: translate(-50%, -50%); 
+}
+
+/* باکس دکمه تماس */
+.call-us {
+  position: fixed; /* ثابت بودن موقعیت */
+  bottom: 3vh; /* فاصله از پایین صفحه */
+  left: 2vw; /* فاصله از سمت راست صفحه */
+  display: flex;
+  justify-content: center; /* مرکزگرا کردن افقی */
+  align-items: center; /* مرکزگرا کردن عمودی */
+  width: 4.2vw; /* عرض باکس */
+  height: 4.2vw; /* ارتفاع باکس */
+  background: rgba(159, 158, 158, 0.19); /* رنگ پس‌زمینه */
+  border-radius: 50%; /* گرد کردن باکس */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* سایه برای زیبایی بیشتر */
+  cursor: pointer; /* تغییر نشانگر موس به دست */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* انیمیشن برای افکت هاور */
+  overflow: visible;
+  position: fixed;
+}
+
+/* استایل برای آیکون تماس */
+#call-us {
+  width: 1.8vw; /* اندازه آیکون */
+  height: 1.8vw;
+  filter: invert(1); /* معکوس کردن رنگ آیکون برای خوانایی بهتر */
+  transition: transform 0.3s ease, filter 0.3s ease; /* انیمیشن برای تغییر اندازه و رنگ */
+}
+
+/* افکت هاور برای دکمه تماس */
+.call-us:hover {
+  background-color: #e65c4f; /* تغییر رنگ پس‌زمینه هنگام هاور */
+  transform: scale(1.1); /* بزرگ شدن باکس */
+}
+.call-us img{
+  width: 2vw;
+  height: 2vw;
+}
+
+.call-tooltip {
+  position: absolute;
+  left: 5vw;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 2.8vw;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-2vw);
+  transition: all .8s ease;
+  font-size: 16px;
+  color: white;
+  pointer-events: none;
+}
+
+.call-us:hover .call-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.clock-and-date {
+  position: absolute; 
+  top: 5.5%; 
+  left: 65.5%; 
+  height: 6vh;
+  width: 15vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  /* padding: 2vw;  */
+  border-radius: 2.8vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%); 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+.clock-and-date p {
+  font-size: 1.1vw;
+  
+}
+
+.clock-and-date .date {
+  align-self: flex-start;  /* چپ */
+}
+
+.clock-and-date .clock {
+  align-self: flex-end;  /* راست */
+}
+
+.search-in-play-box {
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 30vw;
+  height: 6vh;
+  background: rgba(151, 149, 149, 0.538);
+  padding: 0 1vw;
+  border-radius: 2.8vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  top: 2.5vh;
+  left: 27vw;
+  gap: 1vw;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1vw;
+  color: white;
+  padding: 0.5vh;
+  direction: ltr;
+  z-index: 999;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.search-btn img {
+  width: 1.8vw;
+  height: 1.8vw;
+  filter: invert(1);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.search-btn img:hover {
+  opacity: 1;
 }
