@@ -15,20 +15,56 @@ body {
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  font-size: 1rem;
+  font-size: 1vw;
 }
 
+.language {
+  position: absolute;
+  top: 50%;
+  left: 128.2%;
+  height: 6vh;
+  width: 6vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 0 1vw;
+  border-radius: 2.8vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language select {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2vw;  /* ← اندازه فونت بزرگ‌تر شد */
+  outline: none;
+  border-radius: 2vw;
+  direction: rtl;
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+}
+
+.language select option {
+  background-color: #333;
+  color: #ffffff;
+}
 
 .top-controls {
   position: absolute;
   margin-left: 2vw;
   top: 2vh;
-  height: 19vh;
+  height: 18vh;
   background: rgba(159, 158, 158, 0.19);
   padding: 2.1vw;
   border-radius: 2.8vw;
   display: flex;
-  gap: 2.2vw;
+  gap: 2vw;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.667);
 }
 
@@ -67,7 +103,7 @@ body {
 }
 
 #shutdown-btn {
-  position: relative;
+  position: absolute;
   width: 1.5vw; /* اندازه عرض */
   height: 1.5vw;
   filter: invert(1);
@@ -79,7 +115,7 @@ body {
 
 .restart-bar {
   position: fixed; /* ثابت بودن موقعیت */
-  top: 12vh; /* فاصله از پایین صفحه */
+  top: 11vh; /* فاصله از پایین صفحه */
   left: 2vw; /* فاصله از سمت راست صفحه */
   display: flex;
   justify-content: center; /* مرکزگرا کردن افقی */
@@ -110,7 +146,7 @@ body {
 }
 
 #restart-btn{
-  position: relative;
+  position: ab;
   width: 1.5vw; /* اندازه عرض */
   height: 1.5vw;
   filter: invert(1);
@@ -206,7 +242,7 @@ body {
 }
 
 .tab-content {
-  display: none;
+  display: block;
   transition: opacity 0.5s ease;
 }
 
@@ -218,9 +254,9 @@ body {
 .top-right-box {
   position: absolute; /* موقعیت دهی به صورت مطلق */
   top: 5.5%; /* 50% از ارتفاع صفحه */
-  left: 50%; /* 50% از عرض صفحه */
+  left: 53%; /* 50% از عرض صفحه */
   height: 2vh;
-  width: 48vw;
+  width: 55vw;
   background: rgba(159, 158, 158, 0.19);
   color: white;
   padding: 2vw; 
@@ -303,13 +339,12 @@ body {
 
 .clock-and-date {
   position: absolute; 
-  top: 5.5%; 
-  left: 65.5%; 
+  top: 50%; 
+  left: 129%; 
   height: 6vh;
   width: 15vw;
   background: rgba(159, 158, 158, 0.19);
   color: white;
-  /* padding: 2vw;  */
   border-radius: 2.8vw;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
   transform: translate(-50%, -50%); 
@@ -333,7 +368,7 @@ body {
   align-self: flex-end;  /* راست */
 }
 
-.search-in-play-box {
+.search-box {
   position: absolute;
   display: flex;
   flex-direction: row-reverse;
@@ -344,8 +379,8 @@ body {
   padding: 0 1vw;
   border-radius: 2.8vw;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
-  top: 2.5vh;
-  left: 27vw;
+  top: -12%;
+  left: 20.6%;
   gap: 1vw;
 }
 
@@ -379,3 +414,441 @@ body {
 .search-btn img:hover {
   opacity: 1;
 }
+
+.play-box{
+  position: absolute; /* موقعیت دهی به صورت مطلق */
+  top: 38%; /* 50% از ارتفاع صفحه */
+  left: 44%; /* 50% از عرض صفحه */
+  height: 45vh;
+  width: 70vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 2vh; /* اندازه پدینگ نسبی */
+  border-radius: 2vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%); 
+}
+
+
+.play-box-info{
+  position: absolute; /* موقعیت دهی به صورت مطلق */
+  top: 38%; /* 50% از ارتفاع صفحه */
+  left: 88.75%; /* 50% از عرض صفحه */
+  height: 45vh;
+  width: 16.5vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 2vh; /* اندازه پدینگ نسبی */
+  border-radius: 2vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%); 
+}
+
+.play-box-more {
+  position: absolute;
+  top: 78.5%;
+  left: 53%;
+  height: 30vh;
+  width: 88vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 2vh;
+  border-radius: 2vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+}
+
+.display-box {
+  margin-bottom: 1vh;
+  background: rgba(50, 50, 50, 0.5);
+  padding: 1vw;
+  border-radius: 1vw;
+}
+
+.display-title {
+  font-size: 1.5vw;
+  margin-bottom: 0.5vw;
+}
+
+.video-list {
+  font-size: 1vw;
+}
+
+.video-bar {
+  position: absolute;
+  width: 30vw;
+  height: 8vh;
+  background: rgba(9, 0, 0, 0.13);
+  border-radius: 2.8vw;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(9, 0, 0, 0.08);
+  backdrop-filter: blur(.5vw);
+  margin-top:32vh;
+  margin-left: 20vw;
+  border-radius: 2.4vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4.5vh;
+  /* box-shadow: 0 0 1vw rgba(0, 0, 0, 0.667); */
+}
+
+.video-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.video-item img {
+  width: 1.8vw;
+  height: 1.8vw;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.video-item img:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+#pause-button img {
+  width: 2vw;
+  height: 2.4vw;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 10v;
+}
+
+#play-button img {
+  width: 2vw;
+  height: 2.1vw;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#end-button img {
+  width: 2.1vw;
+  height: 2vw;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#backward-button img{
+  transform: scaleX(-1);
+  filter: invert(1);
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+#backward-button img:hover {
+  opacity: 1;
+  transform: scaleX(-1.2) scaleY(1.2);
+}
+
+
+#start-button img{
+  width: 2.1vw;
+  height: 2vw;
+  object-fit: cover;
+  border-radius: 50%;
+  transform: scaleX(-1);
+  filter: invert(1);
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+#start-button img:hover {
+  opacity: 1;
+  transform: scaleX(-1.2) scaleY(1.2);
+}
+
+.add-certificate-box{
+  position: absolute; /* موقعیت دهی به صورت مطلق */
+  top: 34.3%; /* 50% از ارتفاع صفحه */
+  left: 87%; /* 50% از عرض صفحه */
+  height: 37.4vh;
+  width: 20vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 2vw; 
+  border-radius: 2vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+}
+
+.add-hdcp-box{
+  position: absolute; /* موقعیت دهی به صورت مطلق */
+  top: 75%; /* 50% از ارتفاع صفحه */
+  left: 87%; /* 50% از عرض صفحه */
+  height: 37.4vh;
+  width: 20vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 2vw; 
+  border-radius: 2vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+}
+
+.add-update-box{
+  position: absolute; /* موقعیت دهی به صورت مطلق */
+  top: 34.3%; /* 50% از ارتفاع صفحه */
+  left: 65.2%; /* 50% از عرض صفحه */
+  height: 37.4vh;
+  width: 20vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 2vw; 
+  border-radius: 2vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+}
+
+.add-another-box{
+  position: absolute; /* موقعیت دهی به صورت مطلق */
+  top: 75%; /* 50% از ارتفاع صفحه */
+  left: 65.2%; /* 50% از عرض صفحه */
+  height: 37.4vh;
+  width: 20vw;
+  background: rgba(159, 158, 158, 0.19);
+  color: white;
+  padding: 2vw; 
+  border-radius: 2vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+}
+
+.add-certificate-box-title {
+  background: rgba(159, 158, 158, 0.19);
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;  /* وسط افقی */
+  height: 5vh;
+  width: 50%;          /* ← عرض کامل باکس والد */
+  border-radius: 1.5vw;
+  font-size: 1.3vw;
+  text-align: center;
+  line-height: 1.2;
+  margin: 0 auto;
+  margin-top: -.5vw ;       
+}
+
+.add-hdcp-box-title {
+  background: rgba(159, 158, 158, 0.19);
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;  /* وسط افقی */
+  height: 5vh;
+  width: 50%;          /* ← عرض کامل باکس والد */
+  border-radius: 1.5vw;
+  font-size: 1.3vw;
+  text-align: center;
+  line-height: 1.2;
+  margin: 0 auto;
+  margin-top: -.5vw ;       
+}
+
+.add-update-box-title {
+  background: rgba(159, 158, 158, 0.19);
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;  /* وسط افقی */
+  height: 5vh;
+  width: 50%;          /* ← عرض کامل باکس والد */
+  border-radius: 1.5vw;
+  font-size: 1.3vw;
+  text-align: center;
+  line-height: 1.2;
+  margin: 0 auto;
+  margin-top: -.5vw ;       
+}
+
+.directory-picker {
+  position: fixed;
+  background: rgba(159, 158, 158, 0.19);
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3); 
+  height:3.5vh;
+  padding: 1.5vw;
+  top: 29vh;
+  left: 1vw;
+  width: 18vw;
+  border-radius: 2vw;
+}
+
+.choose-directory-btn {
+  position: absolute;
+  background: #6a359c;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: .5vw;
+  font-size: .7vw;
+  border-radius: 2vw;
+  cursor: pointer;
+  top:.9vh;
+  height: 4.5vh;
+  width: 8vw;
+  left: 9.5vw;
+  display: flex;                   /* ← flex فعال */
+  justify-content: center;        /* ← افقی وسط */
+  align-items: center;            /* ← عمودی وسط */
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.choose-directory-btn:hover {
+  background-color: #8e44ad;      /* رنگ بنفش در حالت هاور */
+  transform: scale(1.1);
+}
+
+.submit-certificate-btn {
+  background: #6a359c;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 0.9vw;
+  padding: 1vw;
+  border: none;
+  border-radius: 2vw;
+  cursor: pointer;
+  margin-top:  -2.3vh;
+  margin-left: -1vw; /* هم‌راستا با دکمه قبلی */
+  height: 4.5vh;
+  width: 8vw;
+  display: flex;                /* برای وسط‌چینی */
+  justify-content: center;     /* افقی وسط */
+  align-items: center;    
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-certificate-btn:hover {
+  background-color: #8e44ad;
+  transform: scale(1.1);
+}
+
+/* #selected-name {
+  position: absolute;
+  background: rgba(159, 158, 158, 0.19);
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  margin-top: 10vw;
+  color: white;
+  padding:  .5vw;
+  font-size: 1rem;
+  border-radius: 2vw;
+  padding-top: 1vh;
+} */
+
+.add-hdcp-input-box {
+  background: rgba(159, 158, 158, 0.19);
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  padding: .5vw;
+  border: none;
+  border-radius: 2vw;
+  position: absolute;
+  top: 29vh;      /* از بالا 30 درصد ارتفاع صفحه فاصله بگیر */
+  left: 1vw; 
+  display: flex;
+  align-items: center;
+  gap: .75vw
+}
+
+#hdcp-input {
+  left: -24vw;
+  width: 13vw;
+  height: 4.5vh;
+  padding: 1vw;
+  border-radius: 1.5vw;
+  border: none;
+  font-size: 0.9vw;
+  background: rgba(0, 0, 0, 0.1);
+  color: white;
+  outline: none;
+  transition: box-shadow 0.3s ease; /* انیمیشن نرم */
+}
+
+#hdcp-input:focus {
+  box-shadow: 0 0 0 2px #6a359c; /* خط بنفش دور input */
+}
+
+#hdcp-input::placeholder {
+  color: #ccc;
+}
+
+#confirm-hdcp-btn {
+  background-color: #6a359c;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 0.9vw;
+  padding: 0 1vw;
+  height: 4.5vh;
+  border: none;
+  border-radius: 2vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#confirm-hdcp-btn:hover {
+  background-color: #8e44ad;
+  transform: scale(1.1);
+}
+
+.system-code-box {
+  position: absolute;
+    display: flex;
+  flex-direction: column;
+  align-items: center;         /* این متن و QR رو افقی وسط می‌ذاره */
+  justify-content: center;
+  top: 15vh;
+  right: 1vw;
+  position: absolute;
+  top: 10vh; /* یا هر مقداری که بخوای از بالا فاصله بگیره */
+  left: 10vw;
+  transform: translateX(-50%);
+  width: 18vw;
+  height: 18vh;
+  gap: 1vw;
+  direction: rtl;
+  font-size: 0.9vw;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1vw;
+  border-radius: 2vw;
+ 
+}
+
+.system-code-text {
+  position: absolute;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  align-items: flex-start;
+  white-space: nowrap; /* مهم: جلوگیری از شکستن خط */
+  top: 14vh;
+
+}
+
+#qrcode-test {
+  position: absolute;
+  top: 32%;
+  left: 49%;
+  transform: translate(-50%, -50%); /* وسط افقی و عمودی */
+  width: 6vw;        /* یا هر اندازه دلخواه */
+  height: 6vw;
+  border-radius: 1vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
