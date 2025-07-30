@@ -1,27 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PIXEL UI</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
+
 <body>
-  <div class="search-in-play-box">
-        <input type="text" placeholder="جستجو..." class="search-input">
-          <button class="search-btn">
-            <img src="icons/search.png" alt="Search">
-          </button>
-      </div>
+
+  <div class="call-us">
+    <img src="icons/call.png" alt="call-us" id="call-us">
+    <div class="call-tooltip">
+      <p>09901770053</p>
+      <p>ssmsadra@gmail.com</p>
+    </div>
+  </div>
+
   <div class="top-right-box">
-        
+
   </div>
 
   <div class="top-controls">
 
   </div>
   <div class="bottom-right-box">
+    <div class="search-box">
+      <input type="text" placeholder="جستجو..." class="search-input">
+      <button class="search-btn">
+        <img src="icons/search.png" alt="Search">
+      </button>
+      <div class="clock-and-date">
+        <p id="clock"></p>
+        <p id="date"></p>
+        <script>
+          function updateClockAndDate() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('fa-IR-u-nu-latn', {
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: false,
+              timeZone: "Asia/Tehran"
+            });
+            document.getElementById("clock").textContent = timeStr;
 
+            const dateStr = new Intl.DateTimeFormat('fa-IR-u-nu-latn', {
+              dateStyle: 'short',
+              timeZone: "Asia/Tehran"
+            }).format(now);
+            document.getElementById("date").textContent = dateStr;
+          }
+
+          updateClockAndDate();
+
+          setInterval(updateClockAndDate, 1000);
+        </script>
+        <div class="language">
+          <select id="language-select">
+            <option value="fa">فارسی</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="shutdown-bar">
     <img src="icons/shutdown.png" alt="Shutdown" title="خاموش کردن" id="shutdown-btn">
@@ -29,39 +73,11 @@
   <div class="restart-bar">
     <img src="icons/restart.png" alt="Restart" title="راه اندازی مجدد" id="restart-btn">
   </div>
-  <div class="clock-and-date">
-    <p id="clock"></p>
-    <p id="date"></p>
-    <script>
-      function updateClockAndDate() {
-        const now = new Date();
-        const timeStr = now.toLocaleTimeString('fa-IR-u-nu-latn', {
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-          hour12: false,
-          timeZone: "Asia/Tehran"
-        });
-        document.getElementById("clock").textContent = timeStr;
-
-        const dateStr = new Intl.DateTimeFormat('fa-IR-u-nu-latn', {
-          dateStyle: 'short',
-          timeZone: "Asia/Tehran"
-        }).format(now);
-        document.getElementById("date").textContent = dateStr;
-      }
-
-      updateClockAndDate();
-
-      setInterval(updateClockAndDate, 1000);
-    </script>
-  </div>
 
   <div class="tab-bar">
     <div class="logo">
       <img src="icons/logo.png" class="logo-img" />
     </div>
-
     <div class="tab-item" id="play-tab" onclick="changeTab('play')">
       <img src="icons/play.png" alt="Play" />
       <span class="tooltip">پخش نمایش</span>
@@ -89,16 +105,45 @@
   </div>
   <div id="content-area">
     <div class="tab-content" id="play-content">
+      <div class="play-box">
+        <div class="video-bar">
+          <div class="video-item" id="start-button" title="start">
+            <img src="icons/end.png" alt="start" title="start" />
+          </div>
 
-    </div>  
-    <div class="call-us">
-      <img src="icons/call.png" alt="call-us" id="call-us">
-      <div class="call-tooltip">
-        <p>09901770053</p>
-        <p>ssmsadra@gmail.com</p>
+          <div class="video-item" id="backward-button" title="forward">
+            <img src="icons/forward.png" alt="backward" title="backward" />
+          </div>
+
+          <div class="video-item" id="stop-button" title="stop">
+            <img src="icons/stop.png" alt="stop" title="stop" />
+          </div>
+
+          <div class="video-item" id="play-button" title="play">
+            <img src="icons/play-btn.png" alt="Play" />
+          </div>
+
+          <div class="video-item" id="pause-button" title="pause">
+            <img src="icons/pause.png" alt="pause" title="pause" />
+          </div>
+
+          <div class="video-item" id="forward-button" title="forward">
+            <img src="icons/forward.png" alt="forward" title="forward" />
+          </div>
+
+          <div class="video-item" id="end-button" title="end">
+            <img src="icons/end.png" alt="end" title="end" />
+          </div>
+        </div>
       </div>
+      <div class="play-box-info">
 
+      </div>
+      <div class="play-box-more">
+
+      </div>
     </div>
+
     <div class="tab-content" id="movies-content">
       <h1>فیلم‌ها</h1>
       <p>محتوای مربوط به فیلم‌ها اینجا نمایش داده می‌شود.</p>
@@ -112,20 +157,67 @@
       <p>محتوای مربوط به دانلودها اینجا نمایش داده می‌شود.</p>
     </div>
     <div class="tab-content" id="settings-content">
-      <h1>تنظیمات</h1>
-      <p>محتوای مربوط به تنظیمات اینجا نمایش داده می‌شود.</p>
+      <div class="add-certificate-box">
+        <p class="add-certificate-box-title">
+          گواهینامه
+        </p>
+        <div class="directory-picker">
+          <label for="folderPicker" class="choose-directory-btn">انتخاب گواهینامه</label>
+          <input type="file" id="folderPicker" webkitdirectory directory multiple hidden>
+          <!-- <div id="selected-name">هیچ گواهینامه ای انتخاب نشده</div> -->
+          <button id="submit-certificate" class="submit-certificate-btn">
+            ثبت گواهینامه
+          </button>
+
+        </div>
+        
+
+      </div>
+      <div class="add-hdcp-box">
+        <p class="add-hdcp-box-title">
+          مجوز پخش
+        </p>
+        <div class="add-hdcp-input-box">
+          <button id="confirm-hdcp-btn">تأیید</button>
+          <input type="text" id="hdcp-input" placeholder="      کد فعالسازی را وارد کنید">
+        </div>        
+        <div class="system-code-box">
+          <div class="system-code-text">
+            <span>کد سیستم : </span>
+            <strong id="system-code">54afsv54vfa6r65e4v</strong>
+          </div>
+          <div id="qrcode-test"  style="position:absolute; z-index:3; width:250px; height:250px; padding-left:10px; padding-top:20px;"></div>
+        </div>    
+        
+        <!-- <script>
+          new QRCode(document.getElementById("qrcode-test"), "123456");
+        </script> -->
+    
+      </div>
+      <div class="add-update-box">
+        <p class="add-update-box-title">
+          بروزرسانی
+        </p>
+      </div>
+      <div class="add-another-box">
+
+      </div>
     </div>
     <div class="tab-content" id="about-content">
-      <h1>درباره</h1>
-      <p>محتوای مربوط به صفحه درباره‌ی اینجا نمایش داده می‌شود.</p>
+
     </div>
+
   </div>
-  <script src="script.js">
-    console.log("عرض صفحه: " + window.innerWidth + "px");
-    console.log("ارتفاع صفحه: " + window.innerHeight + "px");
+  <script src="js/jquery.min.js"></script>
+  <script src="js/qrcode.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    var qrcode2 = new QRCode(document.getElementById("qrcode-test"), {
+      width : 80,
+      height : 80,
+      correctLevel : QRCode.CorrectLevel.L
+    });
+    qrcode2.makeCode(document.getElementById("system-code").innerText);
   </script>
-  
-  
 </body>
 </html>
-
